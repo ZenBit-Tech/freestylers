@@ -10,7 +10,6 @@ async function bootstrap() {
     .setTitle('Get-job Doc')
     .setDescription('The Get-job API description')
     .setVersion('1.0')
-    .addTag('getjob')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api/swagger', app, document);
