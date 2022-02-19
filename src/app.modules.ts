@@ -1,9 +1,10 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ExampleModule } from './modules/example/example.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.sevice';
+import { ExampleEntity } from './modules/example/entities/example.entity';
+import { User } from './modules/example/example.module';
 
 @Module({
   controllers: [AppController],
@@ -19,10 +20,11 @@ import { AppService } from './app.sevice';
       username: process.env.MYSQL_USER,
       password: process.env.MYSQL_PASSWORD,
       database: process.env.MYSQL_DB,
-      entities: ['dist/**/*.entity{.ts,.js}'],
+      entities: [ExampleEntity],
       synchronize: true,
+      autoLoadEntities: true,
     }),
-    ExampleModule,
+    User,
   ],
 })
 export class AppModule {}
