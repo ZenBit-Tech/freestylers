@@ -33,4 +33,7 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 
 - Authors: 
   [Mikhail Krasnonos](https://github.com/Mishka31)
+  [**** ****]()
+  [**** ****]()
+  [**** ****]()
 
