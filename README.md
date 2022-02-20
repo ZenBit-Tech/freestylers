@@ -25,9 +25,9 @@ $ npm run dev
 $ npm run start:prod
 ```
 
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+## Documentation Swagger 
+You can open Swagger documentation after launching the application according to the instructions above. the page is running on port 7000 or 8080 on the link:\
+[http://localhost:7000/api/swagger](http://localhost:7000/api/swagger/).
 
 ## Stay in touch
 
