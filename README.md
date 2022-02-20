@@ -1,6 +1,6 @@
 ![](public/img/get-job.png)
 
-# Back-End
+# Back-End project
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository\
