@@ -27,7 +27,7 @@ $ npm run start:prod
 
 ## Documentation Swagger 
 You can open Swagger documentation after launching the application according to the instructions above. the page is running on port 7000 or 8080 on the link:\
-[http://localhost:7000/api/swagger](http://localhost:7000/api/swagger/).
+[http://localhost:7000/api/swagger](http://localhost:7000/api/swagger/)
 
 ## Stay in touch
 
