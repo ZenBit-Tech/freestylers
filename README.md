@@ -1,4 +1,4 @@
-![](public/img/get-job.png)
+![](public/img/get-job-back.png)
 
 # Back-End project
 ## Description
