@@ -4,7 +4,7 @@
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository\
-[TypeORM](https://typeorm.io/#/) ORM connect to database using Query Builder
+[TypeORM](https://typeorm.io/#/) connect to database using Query Builder
 
 ## Installation
 
