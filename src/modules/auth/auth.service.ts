@@ -10,7 +10,13 @@ export class AuthService {
     private jwtService: JwtService,
   ) {}
 
-  async login(userDto: CreateUserDto) {}
-
-  async registration(userDto: CreateUserDto) {}
+  async login(userDto: CreateUserDto) {
+    const payload = { id: userDto.id };
+    return {
+      accessToken: this.jwtService.sign(payload),
+    };
+  }
+  async registration(userDto: CreateUserDto) {
+    console.log(userDto);
+  }
 }

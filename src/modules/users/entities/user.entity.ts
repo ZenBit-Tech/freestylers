@@ -1,6 +1,11 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 import { ApiProperty } from '@nestjs/swagger';
 
+export enum UserRole {
+  COMPANY = 'company',
+  SEEKER = 'seeker',
+}
+
 @Entity()
 export class ExampleEntity {
   @ApiProperty({ example: '1', description: 'Уникальный индетификатор' })
@@ -11,15 +16,23 @@ export class ExampleEntity {
   @Column({ type: 'varchar' })
   firstName: string;
 
-  @ApiProperty({ example: 'Jony', description: 'Имя' })
+  @ApiProperty({ example: 'Jony', description: 'Фамилия' })
   @Column({ type: 'varchar' })
   lastName: string;
+
+  @ApiProperty({ example: 'Jony', description: 'Фамилия' })
+  @Column({ type: 'varchar' })
+  userName: string;
 
   @ApiProperty({ example: +380505550555, description: 'Телефон' })
   @Column({ type: 'varchar' })
   phone: number;
 
   @ApiProperty({ example: true, description: 'Имя' })
-  @Column({ default: false })
-  isActive: boolean;
+  @Column({
+    type: 'enum',
+    enum: UserRole,
+    default: UserRole.SEEKER,
+  })
+  position: UserRole;
 }

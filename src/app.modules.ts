@@ -3,7 +3,8 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.sevice';
-import { ExampleEntity } from './modules/users/entities/example.entity';
+import { AuthModule } from './modules/auth/auth.module';
+import { ExampleEntity } from './modules/users/entities/user.entity';
 import { User } from './modules/users/user.module';
 
 @Module({
@@ -25,6 +26,7 @@ import { User } from './modules/users/user.module';
       autoLoadEntities: true,
     }),
     User,
+    AuthModule,
   ],
 })
 export class AppModule {}
