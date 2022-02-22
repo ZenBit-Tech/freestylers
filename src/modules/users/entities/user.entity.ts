@@ -1,6 +1,11 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 import { ApiProperty } from '@nestjs/swagger';
 
+export enum UserRole {
+  FREELANCER = 'freelancer',
+  JOBOWNER = 'job owner',
+}
+
 @Entity()
 export class ExampleEntity {
   @ApiProperty({ example: '1', description: 'Уникальный индетификатор' })
@@ -8,18 +13,25 @@ export class ExampleEntity {
   id: number;
 
   @ApiProperty({ example: 'Jony', description: 'Имя' })
-  @Column({ type: 'varchar' })
-  firstName: string;
+  @Column({ nullable: true, type: 'varchar' })
+  fullName?: string;
 
-  @ApiProperty({ example: 'Jony', description: 'Имя' })
+  @ApiProperty({
+    example: 'example@gmail.com',
+    description: 'Электронная почта',
+  })
   @Column({ type: 'varchar' })
-  lastName: string;
+  email: string;
 
-  @ApiProperty({ example: +380505550555, description: 'Телефон' })
+  @ApiProperty({ example: '*******', description: 'Пароль' })
   @Column({ type: 'varchar' })
-  phone: number;
+  password: string;
 
   @ApiProperty({ example: true, description: 'Имя' })
-  @Column({ default: false })
-  isActive: boolean;
+  @Column({
+    type: 'enum',
+    enum: UserRole,
+    default: UserRole.FREELANCER,
+  })
+  position: UserRole;
 }
