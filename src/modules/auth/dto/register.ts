@@ -1,4 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { UserRole } from 'src/modules/users/entities/user.entity';
 
 export class registerDto {
   id: number;
@@ -8,5 +9,5 @@ export class registerDto {
   @ApiProperty({ example: 'Пароль пользователя' })
   password: string;
   @ApiProperty({ example: 'Выбор позиции (freelancer | job owner)' })
-  position: () => string;
+  position: UserRole;
 }

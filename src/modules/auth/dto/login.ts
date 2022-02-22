@@ -1,4 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { UserRole } from '../entity/auth-entity';
 
 export class loginDto {
   id: number;
@@ -7,5 +8,5 @@ export class loginDto {
   email: string;
   @ApiProperty({ example: 'Пароль пользователя' })
   password: string;
-  position: () => string;
+  position: UserRole;
 }

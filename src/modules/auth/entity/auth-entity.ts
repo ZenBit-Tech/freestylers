@@ -1,4 +1,4 @@
-import { Entity, Column } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 import { ApiProperty } from '@nestjs/swagger';
 
 export enum UserRole {
@@ -8,9 +8,9 @@ export enum UserRole {
 
 @Entity()
 export class AuthEntity {
-  //   @ApiProperty({ example: '1', description: 'Уникальный индетификатор' })
-  //   @PrimaryGeneratedColumn()
-  //   id: number;
+  @ApiProperty({ example: '1', description: 'Уникальный индетификатор' })
+  @PrimaryGeneratedColumn()
+  id: number;
 
   @ApiProperty({ example: 'Jony Walker', description: 'Имя' })
   @Column({ nullable: true, type: 'varchar' })
