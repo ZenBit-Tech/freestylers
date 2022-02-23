@@ -8,7 +8,7 @@ import {
   Put,
 } from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
-import { CreateUserDto } from './dto/create-user';
+import { CreateUserDto, UpdateUserDto } from './dto/create-user';
 import { ExampleEntity } from './entities/user.entity';
 import { UserService } from './user.service';
 
@@ -49,19 +49,17 @@ export class UserController {
   @ApiOperation({ summary: 'Oбновление пользователя по id' })
   @ApiResponse({ status: 200, type: ExampleEntity })
   @Put(':id')
-  update(
+  async update(
     @Param('id') id: string,
-    { fullName, email, password, position }: CreateUserDto,
+    @Body()
+    { email, fullName, password, position }: UpdateUserDto,
   ): Promise<ExampleEntity> {
-    console.log(id);
+    const findOneUser = await this.usersService.getById(id);
+    findOneUser.email = email;
+    findOneUser.fullName = fullName;
+    findOneUser.password = password;
+    findOneUser.position = position;
 
-    const User = new CreateUserDto();
-
-    User.email = email;
-    User.fullName = fullName;
-    User.password = password;
-    User.position = position;
-
-    return this.usersService.updateUser(User);
+    return this.usersService.updateUser(findOneUser);
   }
 }

@@ -55,11 +55,8 @@ export class UserService {
       return e;
     }
   }
-  async updateUser(dto: CreateUserDto): Promise<ExampleEntity> {
-    console.log(dto);
-
+  async updateUser(dto: ExampleEntity): Promise<ExampleEntity> {
     try {
-      await this.usersRepository.findOneOrFail(dto.id);
       return this.usersRepository.save(dto);
     } catch (e) {
       return e;
